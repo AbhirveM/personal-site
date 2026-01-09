@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRC Robotics - Abhirve Munipalle</title>
+    <meta name="description" content="10k+ line Java codebase for competition robot.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #0a0a0a;
+            color: #fafafa;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .nav-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fafafa;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo:hover {
+            color: #ccc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: #fafafa;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .project-header {
+            padding: 120px 0 60px 0;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: color 0.15s;
+        }
+
+        .back-link:hover {
+            color: #fafafa;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .project-tagline {
+            font-size: 1.15rem;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            color: #888;
+            background: #161616;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .project-screenshot {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #111;
+            border-radius: 8px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #2a2a2a;
+        }
+
+        .project-screenshot span {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 40px 0;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        section h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 16px;
+            background: #111;
+            border-radius: 8px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .tech-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fafafa;
+        }
+
+        .tech-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            font-size: 1rem;
+            color: #ccc;
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #444;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #1a1a1a;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                padding: 12px 20px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .project-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .project-screenshot {
+                aspect-ratio: 4 / 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">AM</a>
+            <div class="nav-links">
+                <a href="/#about">About</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="project-header">
+            <a href="/#projects" class="back-link">← Back to projects</a>
+            <h1>FRC Robotics</h1>
+            <p class="project-tagline">10k+ line Java codebase for competition robot</p>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">WPILib</span>
+                <span class="tag">PathPlanner</span>
+                <span class="tag">PhotonVision</span>
+            </div>
+        </header>
+
+        <div class="project-screenshot">
+            <span>Screenshot coming soon</span>
+        </div>
+
+        <section>
+            <h2>About</h2>
+            <p>A comprehensive Java codebase developed for FIRST Robotics Competition (FRC). The robot features swerve drive for omnidirectional movement, autonomous path following, and vision-based alignment systems.</p>
+            <br>
+            <p>Built with a modular subsystem architecture, the code handles complex real-time control loops, sensor fusion, and strategic autonomous routines for competitive play.</p>
+        </section>
+
+        <section>
+            <h2>Tech Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <span class="tech-name">Java</span>
+                    <span class="tech-desc">Primary language for robot control and logic</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">WPILib</span>
+                    <span class="tech-desc">Official FRC robot programming framework</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">PathPlanner</span>
+                    <span class="tech-desc">Autonomous trajectory planning and path following</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">PhotonVision</span>
+                    <span class="tech-desc">Computer vision for AprilTag detection and target tracking</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li>Swerve drive with field-centric control for precise maneuverability</li>
+                <li>Autonomous path following with motion profiling</li>
+                <li>Vision-based alignment using AprilTags and PhotonVision</li>
+                <li>Modular command-based subsystem architecture</li>
+                <li>Real-time telemetry and diagnostics dashboard</li>
+                <li>Sensor fusion for accurate odometry</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Toronto, ON</p>
+        </footer>
+    </div>
+</body>
+</html>

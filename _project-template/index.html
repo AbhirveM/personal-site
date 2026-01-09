@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROJECT_NAME}} - Abhirve Munipalle</title>
+    <meta name="description" content="{{PROJECT_DESCRIPTION}}">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #0a0a0a;
+            color: #fafafa;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .nav-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fafafa;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo:hover {
+            color: #ccc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: #fafafa;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .project-header {
+            padding: 120px 0 60px 0;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: color 0.15s;
+        }
+
+        .back-link:hover {
+            color: #fafafa;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .project-tagline {
+            font-size: 1.15rem;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            color: #888;
+            background: #161616;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .project-screenshot {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #111;
+            border-radius: 8px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #2a2a2a;
+        }
+
+        .project-screenshot span {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 40px 0;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        section h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
+            display: grid;
+            gap: 12px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 16px;
+            background: #111;
+            border-radius: 8px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .tech-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fafafa;
+        }
+
+        .tech-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            font-size: 1rem;
+            color: #ccc;
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #444;
+        }
+
+        .github-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .github-card:hover {
+            border-color: #444;
+            background: #161616;
+        }
+
+        .github-card-icon {
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .github-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .github-card-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fafafa;
+        }
+
+        .github-card-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .github-card-arrow {
+            color: #444;
+            font-size: 1.2rem;
+            transition: transform 0.15s;
+        }
+
+        .github-card:hover .github-card-arrow {
+            transform: translateX(4px);
+            color: #666;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #1a1a1a;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                padding: 12px 20px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .project-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .project-screenshot {
+                aspect-ratio: 4 / 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">AM</a>
+            <div class="nav-links">
+                <a href="/#about">About</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="project-header">
+            <a href="/#projects" class="back-link">← Back to projects</a>
+            <h1>{{PROJECT_NAME}}</h1>
+            <p class="project-tagline">{{PROJECT_DESCRIPTION}}</p>
+            <div class="tags">
+                <!-- {{TAGS}} - Copy and modify these tag spans -->
+                <span class="tag">Tag1</span>
+                <span class="tag">Tag2</span>
+                <span class="tag">Tag3</span>
+            </div>
+        </header>
+
+        <div class="project-screenshot">
+            <span>Screenshot coming soon</span>
+        </div>
+
+        <section>
+            <h2>About</h2>
+            <p>{{ABOUT_TEXT_PARAGRAPH_1}}</p>
+            <br>
+            <p>{{ABOUT_TEXT_PARAGRAPH_2}}</p>
+        </section>
+
+        <section>
+            <h2>Tech Stack</h2>
+            <div class="tech-stack">
+                <!-- {{TECH_STACK}} - Copy and modify these tech-item divs -->
+                <div class="tech-item">
+                    <span class="tech-name">Technology Name</span>
+                    <span class="tech-desc">Description of how it's used</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">Technology Name</span>
+                    <span class="tech-desc">Description of how it's used</span>
+                </div>
+                <div class="tech-item">
+                    <span class="tech-name">Technology Name</span>
+                    <span class="tech-desc">Description of how it's used</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <!-- {{FEATURES}} - Copy and modify these list items -->
+                <li>Feature description 1</li>
+                <li>Feature description 2</li>
+                <li>Feature description 3</li>
+                <li>Feature description 4</li>
+            </ul>
+        </section>
+
+        <!-- {{GITHUB_SECTION}} - Remove this entire section if no GitHub repo -->
+        <section>
+            <h2>Repository</h2>
+            <a href="{{GITHUB_URL}}" target="_blank" rel="noopener" class="github-card">
+                <div class="github-card-icon">
+                    <svg viewBox="0 0 16 16" width="28" height="28" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </div>
+                <div class="github-card-content">
+                    <span class="github-card-name">{{GITHUB_REPO_NAME}}</span>
+                    <span class="github-card-desc">{{GITHUB_REPO_DESCRIPTION}}</span>
+                </div>
+                <span class="github-card-arrow">→</span>
+            </a>
+        </section>
+        <!-- End {{GITHUB_SECTION}} -->
+
+        <footer>
+            <p>Toronto, ON</p>
+        </footer>
+    </div>
+</body>
+</html>
